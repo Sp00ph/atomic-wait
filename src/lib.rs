@@ -3,6 +3,10 @@
 
 use core::sync::atomic::AtomicU32;
 
+#[cfg(target_os = "emscripten")]
+#[path = "emscripten.rs"]
+mod platform;
+
 #[cfg(any(target_os = "linux", target_os = "android"))]
 #[path = "linux.rs"]
 mod platform;
